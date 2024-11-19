@@ -1,6 +1,6 @@
 ---
 - name: Echo Task on Server
-  hosts: my_servers
+  hosts: localhost
   tasks:
     - name: Echo a message
       debug:
