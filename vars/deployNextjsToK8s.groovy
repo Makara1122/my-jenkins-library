@@ -4,12 +4,19 @@
 def call(String githubRepoUrl, String branch, String dockerImage, String kubeNamespace) {
     pipeline {
         agent any
-        environment {
-            DOCKER_IMAGE = dockerImage
-            GITHUB_REPO = githubRepoUrl
-            GIT_BRANCH = branch
-            K8S_NAMESPACE = kubeNamespace
-        }
+        
+       environment {
+    
+           DOCKER_IMAGE = "${dockerImage}"
+    
+           GITHUB_REPO = "${githubRepoUrl}"
+    
+           GIT_BRANCH = "${branch}"
+    
+           K8S_NAMESPACE = "${kubeNamespace}"
+           
+                    }
+
         stages {
             stage('Checkout') {
                 steps {
